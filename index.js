@@ -1,5 +1,5 @@
 const express=require("express")
-const users=require("./data/db")
+const posts=require("./data/db")
 const expressRouter=require("./express-router")
 
 const server=express()

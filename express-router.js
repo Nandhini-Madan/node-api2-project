@@ -1,5 +1,5 @@
 const express=require("express")
-const users=require("./data/db")
+const posts=require("./data/db")
 
 
 const router=express.Router()
@@ -12,7 +12,7 @@ router.post("/api/posts",(req,res)=>{
             errorMessage: "Please provide title and contents for the post."
         })
     }
-    users.add(req.body)
+    posts.add(req.body)
     .then((user)=>{
         res.status(201).json(user)
     })

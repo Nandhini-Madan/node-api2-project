@@ -22,7 +22,7 @@ function findById(id) {
   return db('posts').where({ id: Number(id) });
 }
 async function add(hub) {
-	const [id] = await db("users").insert(hub)
+	const [id] = await db("posts").insert(hub)
 	return findById(id)
 }
 function insert(post) {
