@@ -11,6 +11,7 @@ module.exports = {
   findPostComments,
   findCommentById,
   insertComment,
+  add,
 };
 
 function find() {
@@ -20,7 +21,10 @@ function find() {
 function findById(id) {
   return db('posts').where({ id: Number(id) });
 }
-
+async function add(hub) {
+	const [id] = await db("users").insert(hub)
+	return findById(id)
+}
 function insert(post) {
   return db('posts')
     .insert(post, 'id')
