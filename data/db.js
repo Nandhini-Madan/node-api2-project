@@ -57,8 +57,10 @@ function findCommentById(id) {
     .where('comments.id', id);
 }
 
-function insertComment(comment) {
+function insertComment(userId,comment) {
+  const data={post_id:userId,...comment}
+  console.log("data",data)
   return db('comments')
-    .insert(comment)
+    .insert(data)
     .then(ids => ({ id: ids[0] }));
 }
